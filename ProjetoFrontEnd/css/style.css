@@ -46,6 +46,7 @@ h3 {
 }
 
 p {
+    margin-bottom: 10px;
     font-family: 'monospace', 'arial', 'times new roman';
 }
 
@@ -68,6 +69,7 @@ p {
 form {
     background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0.6));
     padding: 100px;
+    
 }
 
 div {
