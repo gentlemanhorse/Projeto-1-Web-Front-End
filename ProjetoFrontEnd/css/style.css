@@ -45,6 +45,10 @@ h3 {
     font-family: 'Arial', 'Sans-serif';
 }
 
+p {
+    font-family: 'monospace', 'arial', 'times new roman';
+}
+
 #maincontainer {
     display: flex;
 }
