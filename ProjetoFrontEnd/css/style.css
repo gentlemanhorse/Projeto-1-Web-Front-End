@@ -15,7 +15,10 @@ header {
     color: whitesmoke;
     margin-bottom: 20px;
 }
-
+ul {
+    width: 200px;
+    height: 500px;
+}
 footer {
     background-color: rgb(31, 151, 212);
     padding: 30px;
@@ -42,6 +45,7 @@ footer {
 
 h3 {
     margin: 20px;
+    font-family: 'Arial', 'Sans-serif';
 }
 
 #maincontainer {
