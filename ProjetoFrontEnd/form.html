@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça parte do projeto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h2 id="title">Preencha o formulário com as suas informações:</h2>
+    </header>
+    <form>
+        <label for="username">Nome completo:</label><br>
+        <input type="text" id="username" placeholder="Ex: José Cândido de Mérlin" required><br>
+        
+        <label for="age">Idade: </label><br>
+        <input type="number" id="age" min="18" max="120" required><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" placeholder="mail@gmail.com" required><br>
+
+        <label>Você pretende apoiar o projeto financeiramente?</label><br>
+        <select id="content">
+            <option selected value="sim">Sim</option>
+            <option value="nao">Não</option>
+            <option value="indeciso">Ainda não me decidi</option>
+        </select><br>
+
+        <label for="feedback">Deixe sua opinião sobre o projeto:</label><br>
+        <textarea id="feedback" rows="3" cols="25"></textarea><br>        
+        
+        <input type="submit" id="submit">
+    </form>
+    <footer>
+        <p>2023 - Projeto Vida Marinha</p>
+    </footer>
+</body>
+</html>
