@@ -23,7 +23,7 @@ footer {
     text-align: center;
 }
 
-.img {
+.image {
     height: 200px;
     margin: 50px;
 }
@@ -64,7 +64,7 @@ p {
 li {
     display: block;
 }
-#nav {
+#nvg {
     box-sizing: content-box;
     padding: 10px;
     height: 50px;
@@ -76,7 +76,7 @@ li {
     border-radius: 10px;
 }
 
-#list {
+#item {
     margin: 10px;
 }
 
