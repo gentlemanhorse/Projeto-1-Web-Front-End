@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça parte do projeto</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="script/script.js"></script>
 </head>
 <body>
     <header>
@@ -32,9 +33,13 @@
             <label for="feedback">Deixe sua opinião sobre o projeto:</label><br>
             <textarea id="feedback" rows="5" cols="30"></textarea><br>        
             
-            <input type="submit" id="submit">
+            
+            <input onclick="submitData()" type="submit" id="submit">
+            
+    
         </form>
-    </div>
+        <button onclick="cleanAll()" id="cleanAll" class="btForm"></button>
+    </div>    
     <footer>
         <p>2023 - Projeto Vida Marinha</p>
     </footer>
