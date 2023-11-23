@@ -36,7 +36,7 @@ function cleanAll(){
 
 function addElemento(person) {
     let li = document.createElement("li");
-    let t = document.createTextNode("COlaborador: "+person.name+" data de inscrição: "+person.date);
+    let t = document.createTextNode("Nome: "+person.name+" email: "+person.email+" data de inscrição: "+person.date);
     li.appendChild(t);
     
     document.getElementById("itemLista").appendChild(li);
