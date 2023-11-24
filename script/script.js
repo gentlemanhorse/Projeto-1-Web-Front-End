@@ -17,11 +17,18 @@ function submitData(){
     person.feedback = document.getElementById("feedback").value;
     person.date = new Date().toDateString();
     if (person.name === '') {
-        alert("Você precisa inserir o nome");
+        alert("Insira o nome");
+    }
+    else if(person.age < 18 || person.age > 120){
+        alert("Insira a idade corretamente");
+    }
+    else if(person.mail === ''){
+        alert("Insira o email");
     }
     
     else{
         addElemento(person);
+        cleanAll();
     }
     
 }
