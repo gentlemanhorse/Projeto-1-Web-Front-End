@@ -23,13 +23,13 @@ function submitData(){
     }
     
     else{
-        addElemento(person);
+        addElement(person);
         cleanAll();
     }
     
 }
 
-function cleanAll(){
+function cleanForm(){
     document.getElementById("username").value = "";
     document.getElementById("age").value = null;
     document.getElementById("email").value = "";
@@ -37,12 +37,12 @@ function cleanAll(){
     document.getElementById("feedback").value = "";
 }
 
-function addElemento(person) {
+function addElement(person) {
     personList.push(person);
-    localStorage.setItem('patientList', JSON.stringify(patientList));
+    localStorage.setItem('personList', JSON.stringify(personList));
 
     let li = document.createElement("li");
-    let t = document.createTextNode("Nome: "+person.name+" email: "+person.email+" data de inscrição: "+person.date);
+    let t = document.createTextNode("Nome: "+person.name+" email: "+person.mail+" data de inscrição: "+person.date);
     li.appendChild(t);
     
     document.getElementById("itemLista").appendChild(li);
@@ -59,6 +59,10 @@ function addElemento(person) {
             div.style.display = "none";
         }
     }
+}
+
+function removeAll(){
+    localStorage.clear();
 }
 
 
