@@ -38,24 +38,21 @@
             
     
         </form>
-        <button onclick="cleanAll()" id="cleanAll" class="btForm">Limpar</button>
+        <button onclick="cleanForm()" id="cleanAll" class="btForm">Limpar</button>
     </div>
-    <div>
-        <div class="header">
+    <div id="listDiv">
+        <div>
             <h2>Colaboradores</h2>
-            <input type="text" id="tarefa" placeholder="Informe a tarefa">
-            <span onclick="pesquisar()" class="addBtn">Pesquisar</span>
-            <span onclick="removerTodos()">Remover todos os colaboradores</span>
+            <input type="text" id="tarefa" placeholder="Digite o nome do colaborador">
+            <span>Excluir</span>
+            <span onclick="removeAll()">Limpar lista</span>
         </div>
         <ul id="itemLista">
-            <li class="checked">Tomar café</li>
-            <li>Fazer compras</li>
-        <li>Entregar atividade no moodle</li>
         </ul>
-    
+    </div>
     <footer>
         <p>2023 - Projeto Vida Marinha</p>
     </footer>
-    </div>
+    
 </body>
 </html>
