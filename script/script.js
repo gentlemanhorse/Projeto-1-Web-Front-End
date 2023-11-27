@@ -1,34 +1,5 @@
 var personList = [];
 
-
-
-function submitData(){
-    var person = {
-      name: document.getElementById("username").value,
-      age: document.getElementById("age").value,
-      mail: document.getElementById("email").value,
-      content: document.getElementById("content").value,
-      feedback: document.getElementById("feedback").value,
-      date: new Date().toDateString()
-    };
-    
-    if (person.name === '') {
-        alert("Insira o nome");
-    }
-    else if(person.age < 18 || person.age > 120){
-        alert("Insira a idade corretamente");
-    }
-    else if(!person.mail.match('@')){
-        alert("Insira o email corretamente");
-    }
-    
-    else{
-        addElement(person);
-        cleanAll();
-    }
-    
-}
-
 function cleanForm(){
     document.getElementById("username").value = "";
     document.getElementById("age").value = null;
@@ -37,34 +8,9 @@ function cleanForm(){
     document.getElementById("feedback").value = "";
 }
 
-function addElement(person) {
-    personList.push(person);
-    localStorage.setItem('personList', JSON.stringify(personList));
-
-    let li = document.createElement("li");
-    let t = document.createTextNode("Nome: "+person.name+" email: "+person.mail+" data de inscrição: "+person.date);
-    li.appendChild(t);
-    
-    document.getElementById("itemLista").appendChild(li);
-    
-    document.getElementById("tarefa").value = "";
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-    for (let i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            let div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
-}
-
 function removeAll(){
     localStorage.clear();
 }
-
 
 // Exemplo de uso do localStorage com os métodos setItem, push, stringify, parse e filter para cadastro de pacientes
 
@@ -73,11 +19,11 @@ var patientList = []; //Comando que cria uma variável patientList e a inicializ
 var count = 1;
 
 // Função para adicionar um novo paciente
-function addPatient(name, age) {
-  var newPatient = { id: count++, name: name, age: age }; //cria um novo objetivo de paciente (newPatient), com as propriedades id, name e age
-  patientList.push(newPatient); //comando que adiciona o novo paciente ao final da lista de pacientes
-  localStorage.setItem('patientList', JSON.stringify(patientList)); //o JSON.stringfy converte o objeto JavaScript em uma string JSON
-  renderPatientList();
+function addPerson(name, age, mail, content, feedback, date) {
+  var newPerson = {name: name, age: age, mail: mail, content:content, feedback:feedback, date:date}; //cria um novo objetivo de paciente (newPatient), com as propriedades id, name e age
+  personList.push(newPerson); //comando que adiciona o novo paciente ao final da lista de pacientes
+  localStorage.setItem('personList', JSON.stringify(personList)); //o JSON.stringfy converte o objeto JavaScript em uma string JSON
+  renderPersonList();
 }
 
 // Função para excluir um paciente
@@ -102,30 +48,30 @@ function getPatientList() {
 }
 
 // Função para renderizar a lista de pacientes no HTML
-function renderPatientList() {
-  var patientListElement = document.getElementById('patientList');
-  patientListElement.innerHTML = ''; //limpa o conteúdo HTML do elemento patientListElement
+function renderPersonList() {
+  var personListElement = document.getElementById('itemList');
+  personListElement.innerHTML = ''; //limpa o conteúdo HTML do elemento patientListElement
 
-  patientList.forEach(function (patient) {
+  personList.forEach(function (person) {
     var listItem = document.createElement('li');
     //renderiza a lista de pacientes. Itera sobre cada paciente na lista encontrada e cria um <li> para cada paciente
-    listItem.innerHTML = '<span class="patient-name">' + patient.name + '</span> (Idade: ' + patient.age + ') <button class="delete-button" onclick="deletePatient(' + patient.id + ')">Excluir</button>';
-    patientListElement.appendChild(listItem);
+    listItem.innerHTML = '<span class="patient-name">' + person.name + '</span> (Idade: ' + person.age + ') <button class="delete-button" onclick="deletePerson(' + patient.id + ')">Excluir</button>';
+    personListElement.appendChild(listItem);
   });
 }
 
-// Recuperar a lista de pacientes do localStorage
-getPatientList();
-
-// Renderizar a lista de pacientes no HTML
-renderPatientList();
 
 // Event listener para o formulário de cadastro de pacientes
-document.getElementById('patientForm').addEventListener('submit', function (event) {
+document.getElementsById('submit').addEventListener('submit', function (event) {
+  alert('o0');
   event.preventDefault();
-  var nameInput = document.getElementById('nameInput');
-  var ageInput = document.getElementById('ageInput');
-  addPatient(nameInput.value, parseInt(ageInput.value));
-  nameInput.value = '';
-  ageInput.value = '';
+  var nameInput = document.getElementById('username');
+  var ageInput = document.getElementById('age');
+  var mailInput = document.getElementById('email');
+  var contentInput = document.getElementById("content");
+  var feedback = document.getElementById("feedback");
+  var date = new Date().toDateString()
+  addPerson(nameInput.value, parseInt(ageInput.value), mailInput.value, contentInput.value, feedback.value, date);
+  cleanForm();
 });
+
