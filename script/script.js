@@ -1,4 +1,5 @@
 var personList = [];
+var index;
 
 document.getElementById('formulario').addEventListener('submit', function (event) {
   event.preventDefault();
@@ -7,10 +8,20 @@ document.getElementById('formulario').addEventListener('submit', function (event
   var mailInput = document.getElementById('email');
   var contentInput = document.getElementById("content");
   var feedback = document.getElementById("feedback");
-  var date = new Date().toDateString()
+  var date = registDate();
   addPerson(nameInput.value, parseInt(ageInput.value), mailInput.value, contentInput.value, feedback.value, date);
+  index++;
   cleanForm();
 });
+
+function registDate(){
+  var day = 1;
+  var month = 1;
+  var year = 1;
+  var time = '00:00:00';
+  return day+'/'+month+'/'+year+' '+time;
+
+}
 
 function cleanForm(){
     document.getElementById("username").value = "";
@@ -24,52 +35,64 @@ function removeAll(){
     localStorage.clear();
     document.getElementById('personList').innerHTML = '';
     personList = [];
+    index = 0;
+}
+
+function renderPersonList() {
+  var personListElement = document.getElementById('personList');
+  personListElement.innerHTML = ''; 
+
+  personList.forEach(function (person) {
+    var listItem = document.createElement('li');
+    listItem.innerHTML = '<span >' + person.name +' Idade: ' + person.age + ' Data de Insrição:' + person.date+ '</span><button onclick="deletePerson(' + person.id + ')">Excluir</button>';
+    personListElement.appendChild(listItem);
+  });
 }
 
 function addPerson(name, age, mail, content, feedback, date) {
-  var newPerson = {name: name, age: age, mail: mail, content:content, feedback:feedback, date:date};
+  var newPerson = {id: index, name: name, age: age, mail: mail, content:content, feedback:feedback, date:date};
   personList.push(newPerson);   
   localStorage.setItem('personList', JSON.stringify(personList));
   renderPersonList();
 }
 
-// Exemplo de uso do localStorage com os métodos setItem, push, stringify, parse e filter para cadastro de pacientes
-
-// Função para adicionar um novo paciente
-
-
-// Função para excluir um paciente
-function deletePerson(name) {
-  var updatedPersonList = personList.filter(function (person) {
-    return person.name !== name; //retorna todos os elementos que não sejam no ID selecionado
+function deletePerson(id) {
+  var updatedPersonList = personList.filter(function(person) {
+    return person.id !== id;
   });
 
-  if (updatedPersonList.length < personList.length) { //verifica se a lista atualizada é diferente da lista original
+  if(updatedPersonList.length < personList.length) {
     personList = updatedPersonList;
     localStorage.setItem('personList', JSON.stringify(personList)); 
     renderPersonList();
-  } else {
+  } 
+  else{
     alert('Pessoa não encontrada.');
   }
 }
 
-// Função para recuperar a lista de pacientes do localStorage
-function getPatientList() {
-  var storedList = JSON.parse(localStorage.getItem('personList')); //converte a string JSON para objeto JavaScript
-  patientList = storedList || []; //se storedList for um valor válido (não seja nulo ou indefinido). é atribuido a patientList. Caso contrário, patientList recebe um array vazio
-}
-
-// Função para renderizar a lista de pacientes no HTML
-function renderPersonList() {
-  var personListElement = document.getElementById('personList');
-  personListElement.innerHTML = ''; //limpa o conteúdo HTML do elemento patientListElement
-
-  personList.forEach(function (person) {
-    var listItem = document.createElement('li');
-    //renderiza a lista de pacientes. Itera sobre cada paciente na lista encontrada e cria um <li> para cada paciente
-    listItem.innerHTML = '<span class="person-name">' + person.name + '</span> (Idade: ' + person.age + ') <button class="delete-button" onclick="deletePerson(' + person.name + ')">Excluir</button>';
-    personListElement.appendChild(listItem);
+function query(){
+  var tag = document.getElementById('personField');
+  personList = personList.filter(function(person) {
+    return person.name === tag.value;
   });
+  if(personList.length !== 0){
+    renderPersonList();
+  }
+  else{
+    alert('Nenhum colaborador encontrado');  
+  }
+  getPatientList();
 }
+
+
+
+function getPatientList() {
+  var storedList = JSON.parse(localStorage.getItem('personList'));
+  personList = storedList || []; //se storedList for um valor válido (não seja nulo ou indefinido). é atribuido a patientList. Caso contrário, patientList recebe um array vazio
+}
+
+
+
 
 
