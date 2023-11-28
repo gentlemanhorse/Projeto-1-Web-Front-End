@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faça parte do projeto</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="script/script.js"></script>
 </head>
 <body>
     <header>
@@ -13,7 +12,7 @@
         <h2 id="title">Preencha o formulário com as suas informações:</h2>
     </header>
     <div id="form">
-         <form>
+         <form id="formulario">
             <label for="username">Nome completo:</label><br>
             <input type="text" id="username" placeholder="Ex: José Cândido de Mérlin" required><br>
             
@@ -35,17 +34,17 @@
             
             
             <input id="submit" type="submit">
-            
+            <button onclick="cleanForm()" id="cleanAll" class="btForm">Limpar</button>
     
         </form>
-        <button onclick="cleanForm()" id="cleanAll" class="btForm">Limpar</button>
+        
     </div>
     <div id="listDiv">
         <div>
             <h2>Colaboradores</h2>
             <input type="text" id="personField" placeholder="Digite o nome do colaborador">
-            <span>Excluir</span>
-            <span onclick="removeAll()">Limpar lista</span>
+            <button>Excluir</button>
+            <button onclick="removeAll()">Limpar lista</button>
         </div>
         <ul id="personList">
         </ul>
@@ -54,5 +53,6 @@
         <p>2023 - Projeto Vida Marinha</p>
     </footer>
     
+    <script src="script/script.js"></script>
 </body>
 </html>
