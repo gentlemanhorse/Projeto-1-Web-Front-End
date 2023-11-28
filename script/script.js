@@ -15,11 +15,14 @@ document.getElementById('formulario').addEventListener('submit', function (event
 });
 
 function registDate(){
-  var day = 1;
-  var month = 1;
-  var year = 1;
-  var time = '00:00:00';
-  return day+'/'+month+'/'+year+' '+time;
+  var now = new Date();
+  var day = now.getDate();
+  var month = now.getMonth();
+  var year = now.getFullYear();
+  var hour = now.getHours();
+  var min = now.getMinutes();
+  var sec = now.getSeconds();
+  return day+'/'+month+1+'/'+year+' '+hour+':'+min+':'+sec;
 
 }
 

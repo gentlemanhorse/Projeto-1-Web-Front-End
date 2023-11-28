@@ -147,6 +147,8 @@ input{
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     border: gray solid 1px;
     border-radius: 10px;
+    height: 25px;
+    width: 200px;
 }
 
 input[type="submit"] {
@@ -187,4 +189,32 @@ a:hover{
 input[type="submit"]:hover{
 
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.bt {
+    background-color: rgba(255, 128, 128);
+    height: 25px;
+    width: 75px;
+    margin: 5px;
+    font-size: 60%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border: rgb(191, 69, 69) solid 1px;
+    border-radius: 5px;
+}
+
+.bt:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+h2 {
+    background-color: rgb(31, 151, 212);
+    font-size: 150%;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
