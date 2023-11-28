@@ -47,7 +47,7 @@ function renderPersonList() {
 
   personList.forEach(function (person) {
     var listItem = document.createElement('li');
-    listItem.innerHTML = '<span >' + person.name +' Idade: ' + person.age + ' Data de Insrição:' + person.date+ '</span><button onclick="deletePerson(' + person.id + ')">Excluir</button>';
+    listItem.innerHTML = '<span class="element">Nome: ' + person.name +'</span> Idade: ' + person.age + ' Data de Insrição:' + person.date+ '<button onclick="deletePerson(' + person.id + ')" class="bt">Excluir</button>';
     personListElement.appendChild(listItem);
   });
 }
